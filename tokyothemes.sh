@@ -29,14 +29,16 @@ xfconf-query -c xsettings -p /Net/ThemeName -s "Tokyonight-Dark-B"
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Tokyonight-Dark"
 
 echo "Descargamos Tipografias..."
-wget -O firacode.zip "https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip"
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip"
+#wget -O firacode.zip "https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip"
 wget "https://fonts.google.com/download?family=Inter"
 mv download?family=Inter inter-fonts.zip
 
 echo "Copiamos carpetas..."
-sudo unzip firacode.zip -d /usr/share/fonts
+sudo unzip FiraCode.zip -d /usr/share/fonts
 sudo unzip inter-fonts.zip 
-sudo cp -R /inter-fonts/static /usr/share/fonts
+mv /inter-fonts/static /inter-fonts/Inter
+sudo cp -R /Inter /usr/share/fonts
 fc-cache -v -f
 
 echo "Cambiamos tipografias..."
@@ -45,8 +47,9 @@ xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Fira Code Regular 13"
 
 echo "Instalamos Starship..."
 curl -sS https://starship.rs/install.sh | sh
+starship preset pastel-powerline > ~/.config/starship.toml
 
 echo "Modificamos el .bashrc..."
 sed -i '3ieval \"\$\(starship init bash\)\"' ~/.bashrc
 
-echo "Todo concluyeal fin..."
+echo "Todo concluye al fin..."
