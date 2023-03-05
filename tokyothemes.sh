@@ -46,4 +46,5 @@ xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Fira Code Regular 13"
 echo "Instalamos Starship..."
 curl -sS https://starship.rs/install.sh | sh
 
-sed -i '3ieval \"\$\(starship init bash\)\"' ~/.basrc
+echo "Modificamos el .bashrc..."
+sed -i '3ieval \"\$\(starship init bash\)\"' ~/.bashrc
