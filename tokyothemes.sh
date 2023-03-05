@@ -48,3 +48,5 @@ curl -sS https://starship.rs/install.sh | sh
 
 echo "Modificamos el .bashrc..."
 sed -i '3ieval \"\$\(starship init bash\)\"' ~/.bashrc
+
+echo "Todo concluyeal fin..."
