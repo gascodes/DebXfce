@@ -50,6 +50,8 @@ curl -sS https://starship.rs/install.sh | sh
 starship preset pastel-powerline > ~/.config/starship.toml
 
 echo "Modificamos el .bashrc..."
-sed -i '3ieval \"\$\(starship init bash\)\"' ~/.bashrc
+printf "%s\n eval \"\$(starship init bash)\"" >> ~/.bashrc
+printf "%s\nalias ccl=\"free -m && sync && sudo sysctl vm.drop_caches=3 && free -m\"" >> ~/.bashrc
+source .bashrc
 
 echo "Todo concluye al fin..."
